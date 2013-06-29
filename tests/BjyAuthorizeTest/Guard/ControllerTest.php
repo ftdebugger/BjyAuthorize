@@ -211,8 +211,12 @@ class ControllerTest extends PHPUnit_Framework_TestCase
         $event->expects($this->once())->method('setError')->with(Controller::ERROR);
         $event->expects($this->exactly(4))->method('setParam')->with(
             $this->logicalOr('identity', 'controller', 'action', 'exception'),
-            $this->logicalOr('admin', 'test-controller', 'test-action',
-                $this->isInstanceOf('BjyAuthorize\Exception\UnAuthorizedException'))
+            $this->logicalOr(
+                'admin',
+                'test-controller',
+                'test-action',
+                $this->isInstanceOf('BjyAuthorize\Exception\UnAuthorizedException')
+            )
         );
         $event
             ->getTarget()
