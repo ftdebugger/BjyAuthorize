@@ -218,6 +218,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
                 $this->isInstanceOf('BjyAuthorize\Exception\UnAuthorizedException')
             )
         );
+        
         $event
             ->getTarget()
             ->getEventManager()
